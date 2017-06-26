@@ -1,0 +1,27 @@
+Question to answer: Who will win the tournament?
+		More specifically, use regular season data to determine tournament winner
+		Caveat of this is that he just looks at one season
+Used Kaggle dataset w/ Sports-Reference stats
+115113 games played, 16 stats from each game, binary answer to "Did Team 1 win?"
+	xTrain was 115113 x 16
+	yTrain was 115113 x 1
+Ran on different models
+Tested each on different train/test splits, taking the average of the many tests to determine how accurate that model was
+
+------------------------------------------
+
+Notes on code
+
+Most of code is data prep / cleaning
+
+Feature Selection
+	Model takes in two D dimensional vectors
+	Features are averages over the regular season
+		His question is just trying to predict tournament winners
+			But he does it in a way that can apply a prediction to any two teams
+			Not just tournament games
+compareTwoTeams()
+	For a given game, get the two team's invormation at that point, look at the differences, and 1 if Team 1 wins
+
+Testing Models
+	Scikit-Learn has the models just take in the feature set

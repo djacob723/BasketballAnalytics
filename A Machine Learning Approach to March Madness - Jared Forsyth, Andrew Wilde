@@ -1,0 +1,67 @@
+A Machine Learning Approach to March Madness
+Jared Forsyth, Andrew Wilde
+
+Abstract
+
+Only had to use 5 features to obtain a 73% prediction accuracy
+
+----------------------------------
+
+Introduction
+
+Wanted to focus on improving predictions on individual games in isolation, not making the perfect bracket
+	Predict the outcome between any two teams
+
+----------------------------------
+
+Data Source
+
+ESPN.com and NCAA.com
+
+ESPN provided 47 features per team for each game
+Looked only at tournament games
+
+----------------------------------
+
+Selected Models
+
+Only used continuous data
+Only looked at team data, not player data
+
+----------------------------------
+
+Improvements
+
+Some initial assumptions about the data
+	The two teams' stats for a given game are functionally linked
+		Attributes of Team 1 affect how Team 2 would have performed
+	If you just focus on the winner, then you don't have information on when a team loses
+		Knowing what contributes to losses is just as important as know what contributes to winning
+	
+Removed any ordering
+	None of their algorithms used ordering effectively
+	
+Feature Reduction
+	Used algorithms to detemrine the best features for desired test algorithms
+	kNN ended up being their best prediction model after feature reduction (down to 5 to 10 features)
+		Just focused on that moving forward
+
+----------------------------------
+
+Results
+
+Used random ordering
+Looked at the 4 feature reduction models to see their effects on lowering the features across the numerous models
+	Random Forest Reduction worked best with kNN
+
+----------------------------------
+
+Conclusion
+
+Style theory - different teams match-up better/worse vs different types of teams
+	Quickness vs Height, Offensive vs Defensive, Talent vs Veterans, etc.
+Some features are increase predictions for certain teams than others
+	i.e. FT% might have more weight to teams that get more FT because they can convert more points
+Recommended getting venue info, individual stats, local information (stats about the previous 5 to 10 games)
+Recommended basketball from previous 10 years
+	I'd push to 2000, personally - players back then are similar to today's players
